@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+  <div class="container">
+
+
+    <video autoplay muted loop id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
+    <h1>Weather Forecast App</h1>
+    <br>
+
+    <div class="search-bar">
+      <input type="text" id="city-input" placeholder="Enter city name..." />
+      <button id="get-forecast" onclick="fetchWeather()">Get Forecast</button>
+    </div>
+    <br>
+
+    <div class="cards" id="forecast-cards"></div>
+    <br><br>
+
+    <div id="map-container">
+      <h2> World Map</h2>
+      <div id="map"></div>
+    </div>
+    <br><br>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
