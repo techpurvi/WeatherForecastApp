@@ -1,7 +1,6 @@
-const apiKey = 'cdd2ea54ef813e5bc2bb7f305107f9df'; // Replace with your OpenWeatherMap API key
+const apiKey = 'cdd2ea54ef813e5bc2bb7f305107f9df';
 const forecastContainer = document.getElementById('forecast-cards');
 
-// Initialize Map
 const map = L.map('map').setView([13.0827, 80.2707], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -15,7 +14,6 @@ const conditionImages = {
   Mist: 'images/mist.png',
 };
 
-// Fetch Weather Data
 function fetchWeather() {
   const city = document.getElementById('city-input').value.trim();
   if (!city) return alert('Please enter a city name!');
@@ -39,7 +37,6 @@ function fetchWeather() {
     });
 }
 
-// Filter to get daily forecasts
 function filterDailyForecast(forecasts) {
     const dailyForecast = [];
     const selectedDays = new Set();
@@ -48,7 +45,6 @@ function filterDailyForecast(forecasts) {
       const forecastDate = new Date(forecast.dt_txt).getDate();
       const forecastHour = new Date(forecast.dt_txt).getHours();
   
-      // Select the forecast around midday (12:00), fallback to close times if unavailable
       if (
         !selectedDays.has(forecastDate) &&
         (forecastHour === 9 || forecastHour === 12 || forecastHour === 15)
@@ -58,10 +54,9 @@ function filterDailyForecast(forecasts) {
       }
     });
   
-    return dailyForecast.slice(0, 5); // Return the first 5 days
+    return dailyForecast.slice(0, 5); 
   }
   
-// Display Weather Data
 function displayWeather(dailyForecast) {
   forecastContainer.innerHTML = '';
   dailyForecast.forEach((forecast) => {
@@ -80,7 +75,6 @@ function displayWeather(dailyForecast) {
   });
 }
 
-// Update Map with New City Coordinates
 function updateMap(lat, lon) {
   map.setView([lat, lon], 10);
   L.marker([lat, lon]).addTo(map).bindPopup('Weather Location').openPopup();
