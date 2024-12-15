@@ -5,13 +5,13 @@ const map = L.map('map').setView([13.0827, 80.2707], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 const conditionImages = {
-  Clear: 'images/sunny.png',
-  Clouds: 'images/cloudy.png',
-  Rain: 'images/rainy.png',
-  Snow: 'images/snowy.png',
-  Thunderstorm: 'images/storm.png',
-  Drizzle: 'images/drizzle.png',
-  Mist: 'images/mist.png',
+  Clear: 'Images/sunny.png',
+  Clouds: 'Images/cloudy.png',
+  Rain: 'Images/rainy.png',
+  Snow: 'Images/snowy.png',
+  Thunderstorm: 'Images/storm.png',
+  Drizzle: 'Images/drizzle.png', 
+  Mist: 'Images/mist.png',
 };
 
 function fetchWeather() {
